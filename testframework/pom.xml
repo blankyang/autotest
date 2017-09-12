@@ -19,12 +19,14 @@
 		<repository>
 			<id>releases</id>
 			<name>Internal Releases</name>
-			<url>http://127.0.0.1:8082/nexus/content/repositories/releases/</url>
+			<!-- <url>http://127.0.0.1:8082/nexus/content/repositories/releases/</url> -->
+			<url>http://192.168.7.53:8080/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Internal Snapshots</name>
-			<url>http://127.0.0.1:8082/nexus/content/repositories/snapshots/</url>
+			<!-- <url>http://127.0.0.1:8082/nexus/content/repositories/snapshots/</url> -->
+			<url>http://192.168.7.53:8080/nexus/content/repositories/releases/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -190,11 +192,8 @@
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
-					<!-- 运行全部用例注释此项
-					<suiteXmlFiles>
-						<suiteXmlFile>${xmlFileName}</suiteXmlFile>
-					</suiteXmlFiles>
-					 -->
+					<!-- 运行全部用例注释此项 <suiteXmlFiles> <suiteXmlFile>${xmlFileName}</suiteXmlFile> 
+						</suiteXmlFiles> -->
 				</configuration>
 			</plugin>
 			<plugin>
