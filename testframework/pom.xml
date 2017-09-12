@@ -221,7 +221,7 @@
 							<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
 						</property>
 					</properties>
-					<workingDirectory>target/</workingDirectory>
+					<!-- <workingDirectory>target/</workingDirectory> -->
 					<forkMode>always</forkMode>
 				</configuration>
 

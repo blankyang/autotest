@@ -1,26 +1,27 @@
-2017-09-05 14:37:59.620 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.ConfigUtils: Get the config file: E:\work\eclipseworkspace\testframework\config.properties
-2017-09-05 14:38:02.159 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: LoginPage
-2017-09-05 14:38:02.227 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: page Info is:LoginPage
-2017-09-05 14:38:02.227 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
-2017-09-05 14:38:02.227 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
-2017-09-05 14:38:02.227 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value username
-2017-09-05 14:38:02.228 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is username
-2017-09-05 14:38:02.229 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
-2017-09-05 14:38:02.229 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
-2017-09-05 14:38:02.229 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value password
-2017-09-05 14:38:02.229 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is password
-2017-09-05 14:38:02.229 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value submit
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is submit
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type xpath
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
-2017-09-05 14:38:02.230 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value //*[@id='sys_header_id']/ul[2]/li/a/span[1]
-2017-09-05 14:38:02.231 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is admin
-2017-09-05 14:38:06.702 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
-2017-09-05 14:38:06.734 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: type value is:  admin
-2017-09-05 14:38:06.798 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
-2017-09-05 14:38:06.814 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: type value is:  111111
-2017-09-05 14:38:06.879 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
-2017-09-05 14:38:06.892 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: click button[[ChromeDriver: chrome on XP (22861cfac54f6fc8b30fcf8c4bcd7d67)] -> name: submit]
-2017-09-05 14:38:07.783 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By xpath
+2017-09-12 17:02:56.927 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.ConfigUtils: Get the config file: E:\gitRepository\autotest\testframework\config.properties
+2017-09-12 17:03:00.022 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: LoginPage
+2017-09-12 17:03:00.056 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: page Info is:LoginPage
+2017-09-12 17:03:00.056 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
+2017-09-12 17:03:00.056 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
+2017-09-12 17:03:00.057 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value username
+2017-09-12 17:03:00.058 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is username
+2017-09-12 17:03:00.058 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
+2017-09-12 17:03:00.058 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
+2017-09-12 17:03:00.059 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value password
+2017-09-12 17:03:00.059 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is password
+2017-09-12 17:03:00.059 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type name
+2017-09-12 17:03:00.060 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
+2017-09-12 17:03:00.060 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value submit
+2017-09-12 17:03:00.060 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is submit
+2017-09-12 17:03:00.060 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator type xpath
+2017-09-12 17:03:00.060 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator timeOut 8
+2017-09-12 17:03:00.061 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: get locator value //*[@id='sys_header_id']/ul[2]/li/a/span[1]
+2017-09-12 17:03:00.061 INFO  com.test.framework.utils.Log 30 info - com.test.framework.utils.XMLUtils: locator Name is admin
+2017-09-12 17:03:02.964 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
+2017-09-12 17:03:02.996 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: type value is:  admin
+2017-09-12 17:03:03.063 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
+2017-09-12 17:03:03.076 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: type value is:  111111
+2017-09-12 17:03:03.134 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By name
+2017-09-12 17:03:03.151 INFO  com.test.framework.utils.Log 30 info - com.test.framework.page.LoginPage: click button[[ChromeDriver: chrome on XP (da52ca1f0cdd953d0c06b831207c8156)] -> name: submit]
+2017-09-12 17:03:03.201 DEBUG com.test.framework.utils.Log 38 debug - com.test.framework.page.LoginPage: find element By xpath
+2017-09-12 17:03:13.263 ERROR com.test.framework.utils.Log 46 error - com.test.framework.page.LoginPage: can't find element //*[@id='sys_header_id']/ul[2]/li/a/span[1]

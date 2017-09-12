@@ -3,7 +3,7 @@
 <suite name="autotest1">
 	<test name="interfacetest">
 		<classes>
-			<class name="cn.test.framework.tests.InterfaceTest" />
+			<class name="cn.test.framework.tests.UITest" />
 		</classes>
 	</test>
 </suite>

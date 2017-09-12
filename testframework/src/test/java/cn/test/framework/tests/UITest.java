@@ -16,7 +16,7 @@ public class UITest {
 		driver = DriverFactory.getInstance().getChromeDriver();
 	}
 
-	@Test
+	@Test(enabled = true)
 	public void testLoginPage() {
 		LoginPageAction.setDriver(driver);
 		LoginPageAction.setXmlName("LoginPage.xml");
