@@ -1,11 +1,7 @@
 package com.test.framework.report;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -16,7 +12,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public abstract class ExtentBase {
-	private static Logger logger = LogManager.getLogger("ExtentBase");  
     protected ExtentReports extent;
     protected static ExtentTest test;
     protected String logKey;   
@@ -40,8 +35,6 @@ public abstract class ExtentBase {
         }
         extent.endTest(test);        
         extent.flush();
-    	long time = test.getEndedTime().getTime() - test.getStartedTime().getTime();
-    	logger.info(logKey + "," + time + "ms");
     	
    }
    
