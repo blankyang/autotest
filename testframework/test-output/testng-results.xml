@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="4" started-at="2017-09-12T08:15:05Z" finished-at="2017-09-12T08:15:05Z">
+  <suite name="Default suite" duration-ms="10922" started-at="2017-09-13T02:33:40Z" finished-at="2017-09-13T02:33:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="4" started-at="2017-09-12T08:15:05Z" finished-at="2017-09-12T08:15:05Z">
+    <test name="Default test" duration-ms="10922" started-at="2017-09-13T02:33:40Z" finished-at="2017-09-13T02:33:50Z">
+      <class name="cn.test.framework.tests.UITest">
+        <test-method status="PASS" signature="init()[pri:0, instance:cn.test.framework.tests.UITest@327471b5]" name="init" is-config="true" duration-ms="3498" started-at="2017-09-13T10:33:40Z" finished-at="2017-09-13T10:33:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testLoginPage()[pri:0, instance:cn.test.framework.tests.UITest@327471b5]" name="testLoginPage" duration-ms="6059" started-at="2017-09-13T10:33:43Z" finished-at="2017-09-13T10:33:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginPage -->
+        <test-method status="PASS" signature="stop()[pri:0, instance:cn.test.framework.tests.UITest@327471b5]" name="stop" is-config="true" duration-ms="1359" started-at="2017-09-13T10:33:49Z" finished-at="2017-09-13T10:33:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stop -->
+      </class> <!-- cn.test.framework.tests.UITest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
