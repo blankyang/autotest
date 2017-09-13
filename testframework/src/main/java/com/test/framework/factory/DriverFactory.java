@@ -33,7 +33,7 @@ public class DriverFactory {
 	private static String EDGEDriver;
 	private static String OSType = System.getProperty("os.name");
 	private static String config = System.getProperty("user.dir")
-			+ "\\config.properties";
+			+ "/config.properties";
 	private static String currentDir = System.getProperty("user.dir");
 	static WebDriver driver = null;
 	public static DriverFactory driverfactory;
