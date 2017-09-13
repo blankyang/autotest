@@ -79,7 +79,7 @@ public class DriverFactory {
 			}
 
 		}
-		String path = System.getProperty("user.dir") + "\\" + chromedriver;
+		String path = System.getProperty("user.dir") + "/" + chromedriver;
 		System.setProperty("webdriver.chrome.driver", path);
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("test-type");
