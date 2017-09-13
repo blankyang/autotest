@@ -184,6 +184,7 @@
 					<encoding>UTF-8</encoding>
 					<compilerArguments>
 						<verbose />
+						<bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>
 						<!--  <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath> -->
 					</compilerArguments>
 				</configuration>
@@ -196,7 +197,7 @@
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
-					<!-- 运行全部用例注释此项 <suiteXmlFiles> <suiteXmlFile>${xmlFileName}</suiteXmlFile> 
+					<!-- 运行全部用例注释此项 <suiteXmlFiles> <suiteXmlFile>${xmlFileName}</suiteXmlFile>
 						</suiteXmlFiles> -->
 				</configuration>
 			</plugin>
