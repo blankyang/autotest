@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="cn.test.framework.tests.UITest">
+      <class name="com.test.framework.utils.MockDemo">
         <methods>
-          <include name="testLoginPage"/>
-          <include name="init"/>
-          <include name="stop"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- cn.test.framework.tests.UITest -->
+      </class> <!-- com.test.framework.utils.MockDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
