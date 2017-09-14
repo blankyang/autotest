@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.test.framework.utils.MockDemo">
+      <class name="cn.test.framework.tests.InterfaceTest">
         <methods>
-          <include name="test"/>
+          <include name="beforeSuite"/>
+          <include name="test_image_rec"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- com.test.framework.utils.MockDemo -->
+      </class> <!-- cn.test.framework.tests.InterfaceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

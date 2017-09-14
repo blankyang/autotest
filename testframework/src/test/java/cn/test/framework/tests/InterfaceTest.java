@@ -32,7 +32,8 @@ public class InterfaceTest extends ExtentBase {
 	static {
 		Properties prop = new Properties();
 		try {
-			prop.load(new FileInputStream(System.getProperty("user.dir") + "/data/config.properties"));
+			prop.load(new FileInputStream(System.getProperty("user.dir")
+					+ "/data/config.properties"));
 			ip = prop.getProperty("ip");
 			port = prop.getProperty("port");
 			protocol = prop.getProperty("protocol");
@@ -44,11 +45,13 @@ public class InterfaceTest extends ExtentBase {
 	@Test(dataProvider = "testImageRec", dataProviderClass = ExcelDataProvider.class, enabled = true)
 	public void test_image_rec(Map<String, String> param) throws Exception {
 		log.info("--------图片" + param.get("image_name") + "开始测试--------");
-		test = extent.startTest((this.getClass().getSimpleName() + "_" + "test_image_rec" + "_" + param.get("image_name")));
+		test = extent.startTest((this.getClass().getSimpleName() + "_"
+				+ "test_image_rec" + "_" + param.get("image_name")));
 		logKey = param.get("image_name");
 		Map<String, String> params = new HashMap<String, String>();
 		List<File> files = new ArrayList<File>();
-		File file = new File(System.getProperty("user.dir") + "/photos/" + logKey);
+		File file = new File(System.getProperty("user.dir") + "/photos/"
+				+ logKey);
 		files.add(file);
 		String url = protocol + "://" + ip + ":" + port + param.get("url");
 		String result = HttpUtil.uploadFile(url, files, params);
@@ -64,7 +67,8 @@ public class InterfaceTest extends ExtentBase {
 							key + " error" + " expected: " + param.get(key)
 									+ " actual: " + object.getString(key));
 					AssertUtil.verifyEquals(object.getString(key),
-							param.get(key));
+							param.get(key), " expected: " + param.get(key)
+									+ " actual: " + object.getString(key));
 				}
 			} else {
 				if (key.equals("url") || key.equals("image_name")) {
@@ -76,7 +80,7 @@ public class InterfaceTest extends ExtentBase {
 					} else {
 						test.log(LogStatus.FAIL, key + " error" + " expected: "
 								+ param.get(key) + " actual: " + "null");
-						AssertUtil.verifyEquals("", param.get(key));
+						AssertUtil.verifyEquals("", param.get(key), "param is null");
 					}
 				}
 			}
