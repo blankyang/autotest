@@ -197,8 +197,12 @@
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
-					<!-- 运行全部用例注释此项 <suiteXmlFiles> <suiteXmlFile>${xmlFileName}</suiteXmlFile> 
-						</suiteXmlFiles> -->
+					 
+					 
+					 <suiteXmlFiles> 
+					 	<suiteXmlFile>${xmlFileName}</suiteXmlFile> 
+					 </suiteXmlFiles> 
+					 
 				</configuration>
 			</plugin>
 			<plugin>
