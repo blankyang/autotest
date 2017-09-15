@@ -79,7 +79,7 @@ public class InterfaceTest extends ExtentBase {
 					} else {
 						test.log(LogStatus.FAIL, key + " 验证错误" + " 期望值: "
 								+ param.get(key) + " 实际值: " + "null");
-						AssertUtil.verifyFail("expected param is null");
+						AssertUtil.verifyFail("期望值: null");
 
 					}
 				}
