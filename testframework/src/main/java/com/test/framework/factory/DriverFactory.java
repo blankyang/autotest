@@ -77,6 +77,9 @@ public class DriverFactory {
 			} else {
 				chromedriver = p.getProperty("MAC_chromedriver");
 			}
+			if(OSType.contains("Linux") || OSType.contains("CentOS")){
+				chromedriver = p.getProperty("linux_chromedriver");
+			}
 
 		}
 		String path = System.getProperty("user.dir") + "/" + chromedriver;
