@@ -60,27 +60,27 @@ public class InterfaceTest extends ExtentBase {
 			String key = en.getKey();
 			if (object.containsKey(key)) {
 				if ((object.getString(key).equals(param.get(key)))) {
-					test.log(LogStatus.PASS, key + " Test passed");
+					test.log(LogStatus.PASS, key + " 验证通过");
 					AssertUtil.verifyEquals(1, 1);
 				} else {
 					test.log(LogStatus.FAIL,
-							key + " error" + " expected: " + param.get(key)
-									+ " actual: " + object.getString(key));
-					AssertUtil.verifyEquals(object.getString(key),
-							param.get(key), " expected: " + param.get(key)
-									+ " actual: " + object.getString(key));
+							key + " 验证错误" + " 期望值: " + param.get(key)
+									+ " 实际值: " + object.getString(key));
+					AssertUtil.verifyFail(" 期望值: " + param.get(key) + " 实际值: "
+							+ object.getString(key));
 				}
 			} else {
 				if (key.equals("url") || key.equals("image_name")) {
 					continue;
 				} else {
 					if (param.get(key).equals("")) {
-						test.log(LogStatus.PASS, key + " Test passed");
+						test.log(LogStatus.PASS, key + " 验证通过");
 						AssertUtil.verifyEquals(1, 1);
 					} else {
-						test.log(LogStatus.FAIL, key + " error" + " expected: "
-								+ param.get(key) + " actual: " + "null");
-						AssertUtil.verifyEquals("", param.get(key), "param is null");
+						test.log(LogStatus.FAIL, key + " 验证错误" + " 期望值: "
+								+ param.get(key) + " 实际值: " + "null");
+						AssertUtil.verifyFail("expected param is null");
+
 					}
 				}
 			}

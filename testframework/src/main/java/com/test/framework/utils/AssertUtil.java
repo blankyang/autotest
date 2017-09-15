@@ -28,5 +28,14 @@ public class AssertUtil {
 			flag = false;
 		}
 	}
+	public static void verifyFail(String message) {
+		try {
+			Assert.fail(message);
+		} catch (Error e) {
+			errors.add(e);
+			Assert.fail(message,e);
+			flag = false;
+		}
+	}
 
 }
