@@ -32,9 +32,9 @@ public class BasePage {
 	public void setXmlName(String xmlName) {
 		this.xmlName = xmlName;
 	}
-
+	
 	protected String path = System.getProperty("user.dir")
-			+ "\\src\\main\\java\\com\\test\\framework\\page\\";
+			+ "/src/main/java/com/test/framework/page/";
 
 	public BasePage(WebDriver driver, String xmlName) {
 		super();
@@ -117,10 +117,13 @@ public class BasePage {
 	}
 
 	public WebElement findElement(WebDriver driver, final Locator locator) {
-		int timeOut = 10;
+		int timeOut = 0;
 		if (locator != null) {
 			try {
 				timeOut = locator.getWaitSec();
+				if(timeOut == 0 || timeOut <0){
+					timeOut = 8;
+				}
 			} catch (NullPointerException e) {
 				log.error("can't get Default time out "
 						+ locator.getElementExp());
@@ -152,7 +155,6 @@ public class BasePage {
 
 	public WebElement getElement(Locator sourceLocator) {
 		Locator locator = getLocator(sourceLocator.getElementExp());
-		// this code fix can't get locator from page XML issue
 		if (locator == null) {
 			locator = new Locator(sourceLocator.getElementExp(),
 					sourceLocator.getWaitSec(), sourceLocator.getByType());

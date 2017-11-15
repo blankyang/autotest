@@ -48,8 +48,7 @@ public class ExcelDataProvider {
 	}
 
 	@DataProvider(name = "testImageRec")
-	public static Object[][] getTestDataToBankCard(Method method)
-			throws FileNotFoundException {
+	public static Object[][] getTestDataToBankCard(Method method) throws FileNotFoundException {
 		List<Map<String, String>> parList = new ArrayList<Map<String, String>>();
 		List<Map<String, String>> sonList = new ArrayList<Map<String, String>>();
 		List<Map<String, String>> exList = ReadExcelUtil.readXlsx(
@@ -69,5 +68,28 @@ public class ExcelDataProvider {
 					+ method.getName());
 			return null;
 		}
-	}	
+	}
+	
+	@DataProvider(name = "testSum")
+	public static Object[][] getTestSumData(Method method) throws FileNotFoundException {
+		List<Map<String, String>> parList = new ArrayList<Map<String, String>>();
+		List<Map<String, String>> sonList = new ArrayList<Map<String, String>>();
+		List<Map<String, String>> exList = ReadExcelUtil.readXlsx(
+				"data/111.xls", sheetIndex);
+		for (int i = 0; i < exList.size(); i++) {
+			Map<String, String> map = (Map<String, String>) exList.get(i);
+			sonList.add(map);
+		}
+		if (sonList.size() > 0) {
+			obj = new Object[sonList.size()][];
+			for (int i = 0; i < sonList.size(); i++) {
+				obj[i] = new Object[] { sonList.get(i) };
+			}
+			return obj;
+		} else {
+			Assert.assertTrue(sonList.size() != 0, parList + "为空，找不到属性值："
+					+ method.getName());
+			return null;
+		}
+	}
 }

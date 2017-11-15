@@ -23,6 +23,8 @@ import com.test.framework.utils.Log;
 
 @Listeners({ com.test.framework.utils.AssertListener.class })
 public class InterfaceTest extends ExtentBase {
+	
+
 	Log log = new Log(InterfaceTest.class);
 	private JSONObject object;
 	private static String ip;
@@ -41,7 +43,8 @@ public class InterfaceTest extends ExtentBase {
 			e.printStackTrace();
 		}
 	}
-
+		
+	
 	@Test(dataProvider = "testImageRec", dataProviderClass = ExcelDataProvider.class, enabled = true)
 	public void test_image_rec(Map<String, String> param) throws Exception {
 		log.info("--------图片" + param.get("image_name") + "开始测试--------");
@@ -52,6 +55,7 @@ public class InterfaceTest extends ExtentBase {
 		List<File> files = new ArrayList<File>();
 		File file = new File(System.getProperty("user.dir") + "/photos/"
 				+ logKey);
+		System.out.println("图片路径===" + file.getCanonicalPath());
 		files.add(file);
 		String url = protocol + "://" + ip + ":" + port + param.get("url");
 		String result = HttpUtil.uploadFile(url, files, params);

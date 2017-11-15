@@ -14,7 +14,8 @@ import com.relevantcodes.extentreports.LogStatus;
 public abstract class ExtentBase {
     protected ExtentReports extent;
     protected static ExtentTest test;
-    protected String logKey;   
+    protected String logKey;
+    protected int sum;  
     final String filePath = System.getProperty("user.dir") 
     		+ "/report/" 
     		+ new SimpleDateFormat("yyyy-MM-dd").format(new Date())

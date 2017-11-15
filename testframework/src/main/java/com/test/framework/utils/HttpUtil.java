@@ -168,7 +168,8 @@ public class HttpUtil {
 		return "请求炸了";
 	}
 
-	public static String byJson(String path, Map<String, String> headers,JSONObject json) {
+	public static String byJson(String path, Map<String, String> headers,
+			JSONObject json) {
 		try {
 			URL url = new URL(path.trim());
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -17,12 +17,12 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public class ReadExcelUtil {
-
+	
 	private static Workbook wb;
 
 	@SuppressWarnings("resource")
-	public static List<Map<String, String>> readXlsx(String fileName,int SheetCount)
-			throws FileNotFoundException {
+	public static List<Map<String, String>> readXlsx(String fileName,
+			int SheetCount) throws FileNotFoundException {
 		InputStream input = new FileInputStream(fileName);
 		HSSFWorkbook hssfWorkbook = null;
 		try {
@@ -70,7 +70,7 @@ public class ReadExcelUtil {
 			if (".xls".equals(ext)) {
 				wb = new HSSFWorkbook(is);
 			} else if (".xlsx".equals(ext)) {
-				//wb = new XSSFWorkbook(is);
+				// wb = new XSSFWorkbook(is);
 			} else {
 				wb = null;
 			}
@@ -79,4 +79,5 @@ public class ReadExcelUtil {
 		}
 		return wb;
 	}
+	
 }
