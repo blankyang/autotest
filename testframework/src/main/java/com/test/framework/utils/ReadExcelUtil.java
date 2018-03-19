@@ -17,7 +17,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public class ReadExcelUtil {
-	
+
 	private static Workbook wb;
 
 	@SuppressWarnings("resource")
@@ -79,5 +79,5 @@ public class ReadExcelUtil {
 		}
 		return wb;
 	}
-	
+
 }

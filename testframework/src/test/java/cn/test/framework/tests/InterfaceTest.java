@@ -3,9 +3,7 @@ package cn.test.framework.tests;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -37,7 +35,7 @@ public class InterfaceTest extends ExtentBase {
 			prop.load(new FileInputStream(System.getProperty("user.dir")
 					+ "/data/config.properties"));
 			ip = prop.getProperty("ip");
-			port = prop.getProperty("port");
+			port = prop.getProperty("port"); 
 			protocol = prop.getProperty("protocol");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,14 +49,13 @@ public class InterfaceTest extends ExtentBase {
 		test = extent.startTest((this.getClass().getSimpleName() + "_"
 				+ "test_image_rec" + "_" + param.get("image_name")));
 		logKey = param.get("image_name");
-		Map<String, String> params = new HashMap<String, String>();
-		List<File> files = new ArrayList<File>();
+		Map<String, File>files = new HashMap<String,File>();
 		File file = new File(System.getProperty("user.dir") + "/photos/"
 				+ logKey);
 		System.out.println("图片路径===" + file.getCanonicalPath());
-		files.add(file);
+		files.put("photo", file);
 		String url = protocol + "://" + ip + ":" + port + param.get("url");
-		String result = HttpUtil.uploadFile(url, files, params);
+		String result = HttpUtil.byFilePost(url, null, files,null);
 		object = JSONObject.fromObject(result);
 		for (Map.Entry<String, String> en : param.entrySet()) {
 			String key = en.getKey();
@@ -82,7 +79,7 @@ public class InterfaceTest extends ExtentBase {
 						AssertUtil.verifyEquals(1, 1);
 					} else {
 						test.log(LogStatus.FAIL, key + " 验证错误" + " 期望值: "
-								+ param.get(key) + " 实际值: " + "null");
+								+ param.get(key) + " 实际值: " + "null");	
 						AssertUtil.verifyFail("期望值: null");
 
 					}
