@@ -29,15 +29,16 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 
 public class HttpClientUtil {
-		
+
 	@SuppressWarnings("unchecked")
-	public static List<Map<String, String>> getExcelData(int sheetIndex) throws Exception{
+	public static List<Map<String, String>> getExcelData(String SheetName)
+			throws Exception {
 		List<Map<String, String>> params = new ArrayList<Map<String, String>>();
 		Gson gson = new Gson();
 		Object[][] array = null;
 		List<Map<String, String>> sonList = new ArrayList<Map<String, String>>();
 		List<Map<String, String>> exList = ReadExcelUtil.readXlsx(
-				"data/dataProvider.xls", sheetIndex);
+				"data/dataProvider.xls", SheetName);
 		for (int i = 0; i < exList.size(); i++) {
 			Map<String, String> map = (Map<String, String>) exList.get(i);
 			sonList.add(map);
@@ -48,18 +49,18 @@ public class HttpClientUtil {
 				array[i] = new Object[] { sonList.get(i) };
 			}
 		}
-		for(int i=0; i<array.length; i++){
-			for(int j=0; j<array[i].length; j++){
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array[i].length; j++) {
 				Map<String, String> mapp = new HashMap<String, String>();
-				System.out.println("第"+(i+1)+":" + array[i][j]);
-				mapp = gson.fromJson(JSONObject.toJSONString(array[i][j]), mapp.getClass());
+				System.out.println("第" + (i + 1) + ":" + array[i][j]);
+				mapp = gson.fromJson(JSONObject.toJSONString(array[i][j]),
+						mapp.getClass());
 				params.add(mapp);
 			}
 		}
 		System.out.println("总数：" + params.size());
 		return params;
-		
-		
+
 	}
 
 	public static String sendGet(String path) {
@@ -78,9 +79,10 @@ public class HttpClientUtil {
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				srtResult = EntityUtils.toString(httpResponse.getEntity());// 获得返回的结果
 				return srtResult;
-			} else {
+			}else {
 				return "Error Response: "
-						+ httpResponse.getStatusLine().toString();
+						+ httpResponse.getStatusLine().toString()
+						+ EntityUtils.toString(httpResponse.getEntity());
 			}
 
 		} catch (Exception e) {
@@ -120,7 +122,8 @@ public class HttpClientUtil {
 				strResult = EntityUtils.toString(response.getEntity());
 				return strResult;
 			} else {
-				return "Error Response: " + response.getStatusLine().toString();
+				return "Error Response: " + response.getStatusLine().toString()
+						+ EntityUtils.toString(response.getEntity());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +158,8 @@ public class HttpClientUtil {
 				strResult = EntityUtils.toString(response.getEntity());
 				return strResult;
 			} else {
-				return "Error Response: " + response.getStatusLine().toString();
+				return "Error Response: " + response.getStatusLine().toString()
+						+ EntityUtils.toString(response.getEntity());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,7 +175,8 @@ public class HttpClientUtil {
 		}
 	}
 
-	public static String sendPost4File(String serverUrl,Map<String, File> files, Map<String, String> params) {
+	public static String sendPost4File(String serverUrl,
+			Map<String, File> files, Map<String, String> params) {
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 		HttpPost httpPost = new HttpPost(serverUrl);
 		RequestConfig requestConfig = RequestConfig.custom()
@@ -209,7 +214,9 @@ public class HttpClientUtil {
 			if (response.getStatusLine().getStatusCode() == 200) {
 				return EntityUtils.toString(response.getEntity());
 			} else {
-				return "Error Response: " + response.getStatusLine().toString();
+				return "Error Response: " + response.getStatusLine().toString()
+						+ EntityUtils.toString(response.getEntity());
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -225,9 +232,10 @@ public class HttpClientUtil {
 
 	}
 
-	public static String sendPost4FileArray(String serverUrl,Map<String, File[]> files, Map<String, String> params) {
-		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+	public static String sendPost4FileArray(String serverUrl,
+			Map<String, File[]> files, Map<String, String> params) {
 		HttpPost httpPost = new HttpPost(serverUrl);
+		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 		RequestConfig requestConfig = RequestConfig.custom()
 				.setConnectTimeout(180 * 1000).setProxy(proxy)
 				.setConnectionRequestTimeout(180 * 1000)
@@ -241,7 +249,8 @@ public class HttpClientUtil {
 				for (Map.Entry<String, File[]> entry : files.entrySet()) {
 					fileArray = entry.getValue();
 					for (int i = 0; i < fileArray.length; i++) {
-						String fileName = fileArray[i].toPath().getFileName().toString();
+						String fileName = fileArray[i].toPath().getFileName()
+								.toString();
 						builder.addBinaryBody(entry.getKey(),
 								entry.getValue()[i],
 								ContentType.MULTIPART_FORM_DATA
@@ -267,7 +276,8 @@ public class HttpClientUtil {
 			if (response.getStatusLine().getStatusCode() == 200) {
 				return EntityUtils.toString(response.getEntity());
 			} else {
-				return "Error Response: " + response.getStatusLine().toString();
+				return "Error Response: " + response.getStatusLine().toString()
+						+ EntityUtils.toString(response.getEntity());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

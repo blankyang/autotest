@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.alibaba.fastjson.JSONObject;
@@ -18,48 +19,42 @@ import com.test.framework.utils.HttpUtil;
 import com.test.framework.utils.MD5Util;
 
 public class BakeTest {
-	
+
 	public static final String MD5_KEY = "f652724b231d0cc23122a6b3e1646036";
 
 	public static final String MD5_KEY_TH = "f652724b231d0cc23122a6b33e1646033";
 
+	public static final String DEV_repaymentPlanUpload = "http://dev-pim-api.baketechfin.com/api/repaymentPlanUpload";
 
-	public static final String DEV_repaymentPlanUpload = "http://116.62.54.64:8081/api/repaymentPlanUpload";
-	
-	public static final String DEV_repaymentPlanUpload1 = "http://172.16.100.215:8080/api/repaymentPlanUpload";
-		
-	public static final String DEV_contractUploadd = "http://116.62.54.64:8081/contractUpload";
-	
+	public static final String DEV_contractUploadd = "http://dev-pim-api.baketechfin.com/api/contractUpload";
 
-	public static final String LOCAL_contractUploadd = "http://172.16.100.201:3002/api/contractUpload";
-	
-
-	
 	@Test
 	public void repaymentPlanUpload() throws Exception {
 		Map<String, String> params = new HashMap<String, String>();
-		List<Map<String, String>>maps = HttpClientUtil.getExcelData(1);
-		for(int i=0; i<maps.size(); i++){
+		List<Map<String, String>> maps = HttpClientUtil.getExcelData("getPlan");
+		for (int i = 0; i < maps.size(); i++) {
 			params = maps.get(i);
 			params.put("projectId", "1");
 			params.put("contractNo", params.get("contractNo"));
 			params.put("planJson", params.get("planJson"));
 			params = getSignParams2(params);
-			String result = HttpClientUtil.sendPost4File(DEV_repaymentPlanUpload,null,params);
+			String result = HttpClientUtil.sendPost4File(
+					DEV_repaymentPlanUpload, null, params);
 			System.out.println("上传还款计划表:" + result);
 		}
-		
+
 	}
 
 	@Test
 	public void contractUpload() throws Exception {
-		List<Map<String, String>>maps = HttpClientUtil.getExcelData(0);
-		File[] fileArray = { new File("C:\\Users\\admin\\Desktop\\test.png"),new File("C:\\Users\\admin\\Desktop\\test.png") };
+		List<Map<String, String>> maps = HttpClientUtil.getExcelData("getContract");
+		File[] fileArray = { new File("C:\\Users\\admin\\Desktop\\test.png"),
+				new File("C:\\Users\\admin\\Desktop\\test.png") };
 		Map<String, String> params = new HashMap<String, String>();
 		Map<String, File[]> files = new HashMap<String, File[]>();
 		files.put("contractFile", fileArray);
 		files.put("invoiceFile", fileArray);
-		for(int i=0; i<maps.size(); i++){
+		for (int i = 0; i < maps.size(); i++) {
 			params = maps.get(i);
 			params.put("projectId", "1");
 			params.put("contractNo", params.get("contractNo"));
@@ -77,12 +72,14 @@ public class BakeTest {
 			params.put("loanPeriods", params.get("loanPeriods"));
 			params.put("repaymentDate", params.get("repaymentDate"));
 			params.put("totalInterest", params.get("totalInterest"));
-			params.put("totalPrincipalAndInterest",params.get("totalPrincipalAndInterest"));
+			params.put("totalPrincipalAndInterest",
+					params.get("totalPrincipalAndInterest"));
 			params.put("monthRepayment", params.get("monthRepayment"));
 			params.put("carType", params.get("carType"));
 			params.put("isNewCar", params.get("isNewCar"));
 			params = getSignParams2(params);
-			String result = HttpClientUtil.sendPost4FileArray(LOCAL_contractUploadd,files, params);
+			String result = HttpClientUtil.sendPost4FileArray(
+					DEV_contractUploadd, files, params);
 			System.out.println("合同上传:" + result);
 		}
 		// params.put("invalidContractNo", "1116129680");
@@ -105,7 +102,7 @@ public class BakeTest {
 		// params.put("monthRepayment", "2939.81");//月供
 		// params.put("carType", "1");//车辆类型【1、客车2、货车3、商用车】
 		// params.put("isNewCar", "1");//是否新车【1|0】
-	
+
 	}
 
 	@Test
@@ -332,6 +329,7 @@ public class BakeTest {
 						"http://test-api.bakejinfu.com/customer/add_person_assets_building",
 						headers, params);
 		System.out.println("添加客户房产资产：" + baseInfo);
+		Assert.assertEquals(1, 0);
 	}
 
 	@Test

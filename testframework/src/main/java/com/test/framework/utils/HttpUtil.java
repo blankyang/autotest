@@ -160,7 +160,6 @@ public class HttpUtil {
 					"multipart/form-data; boundary=" + BOUNDARY);
 			connection.setRequestProperty("Accept", "*/*");
 			connection.setRequestProperty("connection", "Keep-Alive");
-			connection.setRequestProperty("user-agent", "Android WYJ");
 			connection.setRequestProperty("Charsert", "UTF-8");
 			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
 			// if(headers != null && !headers.isEmpty()){

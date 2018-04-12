@@ -19,7 +19,7 @@ public abstract class ExtentBase {
     final String filePath = System.getProperty("user.dir") 
     		+ "/report/" 
     		+ new SimpleDateFormat("yyyy-MM-dd").format(new Date())
-    		+ "/" + new SimpleDateFormat("hh-mm-ss").format(new Date())
+    		+ "/" + new SimpleDateFormat("hh-mm").format(new Date())
     		+ "/TestReport.html";
 
     @AfterMethod

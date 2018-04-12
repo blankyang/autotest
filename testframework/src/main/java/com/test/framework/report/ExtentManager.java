@@ -10,7 +10,7 @@ public class ExtentManager {
     
     public synchronized static ExtentReports getReporter(String filePath) {
         if (extent == null) {
-            extent = new ExtentReports(filePath, false,NetworkMode.OFFLINE);
+            extent = new ExtentReports(filePath, false,NetworkMode.ONLINE);
             extent.loadConfig(new File("extent-config.xml"));
             extent
                 .addSystemInfo("Host Name", "yangxiaobin")

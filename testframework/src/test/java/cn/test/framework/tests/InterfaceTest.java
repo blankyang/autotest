@@ -3,7 +3,9 @@ package cn.test.framework.tests;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -18,6 +20,7 @@ import com.test.framework.report.ExtentBase;
 import com.test.framework.utils.AssertUtil;
 import com.test.framework.utils.HttpUtil;
 import com.test.framework.utils.Log;
+import com.test.framework.utils.MailUtil;
 
 @Listeners({ com.test.framework.utils.AssertListener.class })
 public class InterfaceTest extends ExtentBase {
@@ -43,7 +46,7 @@ public class InterfaceTest extends ExtentBase {
 	}
 		
 	
-	@Test(dataProvider = "testImageRec", dataProviderClass = ExcelDataProvider.class, enabled = true)
+	@Test(dataProvider = "testImageRec", dataProviderClass = ExcelDataProvider.class, enabled = false)
 	public void test_image_rec(Map<String, String> param) throws Exception {
 		log.info("--------图片" + param.get("image_name") + "开始测试--------");
 		test = extent.startTest((this.getClass().getSimpleName() + "_"
@@ -87,5 +90,13 @@ public class InterfaceTest extends ExtentBase {
 			}
 		}
 	}
+	
+	@Test
+	public void test() throws Exception {
+		List<File> attachments = new ArrayList<File>();
+		attachments.add(new File("C:/Users/admin/Desktop/TestReport.html"));
+		MailUtil.sendFilesEmail("yangyangtbs@163.com", "gongxueping@bakejinfu.com", "111", "222", attachments);
+	}
+	
 
 }

@@ -22,7 +22,7 @@ public class ReadExcelUtil {
 
 	@SuppressWarnings("resource")
 	public static List<Map<String, String>> readXlsx(String fileName,
-			int SheetCount) throws FileNotFoundException {
+			String SheetName) throws FileNotFoundException {
 		InputStream input = new FileInputStream(fileName);
 		HSSFWorkbook hssfWorkbook = null;
 		try {
@@ -31,7 +31,8 @@ public class ReadExcelUtil {
 			e.printStackTrace();
 		}
 		// 获取工作表
-		HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(SheetCount);
+		//HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(SheetCount);
+		HSSFSheet hssfSheet = hssfWorkbook.getSheet(SheetName);
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		// 循环行Row
 		HSSFRow rowTitleRow = hssfSheet.getRow(0);

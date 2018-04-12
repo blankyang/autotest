@@ -34,8 +34,7 @@ public class ExcelDataProvider {
 	public static Object[][] getPlan(Method method)throws Exception {
 		List<Map<String, String>> parList = new ArrayList<Map<String, String>>();
 		List<Map<String, String>> sonList = new ArrayList<Map<String, String>>();
-		List<Map<String, String>> exList = ReadExcelUtil.readXlsx(
-				"data/dataProvider.xls", 1);
+		List<Map<String, String>> exList = ReadExcelUtil.readXlsx("data/dataProvider.xls", "");
 		for (int i = 0; i < exList.size(); i++) {
 			Map<String, String> map = (Map<String, String>) exList.get(i);
 			sonList.add(map);
