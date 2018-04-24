@@ -37,5 +37,14 @@ public class AssertUtil {
 			flag = false;
 		}
 	}
+	public static void verifyPass() {
+		try {
+			Assert.assertTrue(true);
+		} catch (Error e) {
+			errors.add(e);
+			Assert.fail(e.toString());
+			flag = false;
+		}
+	}
 
 }

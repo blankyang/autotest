@@ -13,12 +13,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.alibaba.fastjson.JSONObject;
+import com.relevantcodes.extentreports.LogStatus;
+import com.test.framework.report.ExtentBase;
 import com.test.framework.utils.AssertUtil;
 import com.test.framework.utils.HttpClientUtil;
 import com.test.framework.utils.HttpUtil;
 import com.test.framework.utils.MD5Util;
 
-public class BakeTest {
+public class BakeTest extends ExtentBase {
 
 	public static final String MD5_KEY = "f652724b231d0cc23122a6b3e1646036";
 
@@ -27,6 +29,13 @@ public class BakeTest {
 	public static final String DEV_repaymentPlanUpload = "http://dev-pim-api.baketechfin.com/api/repaymentPlanUpload";
 
 	public static final String DEV_contractUploadd = "http://dev-pim-api.baketechfin.com/api/contractUpload";
+
+	@Test
+	public void getSore() throws Exception {
+		String result = HttpClientUtil
+				.sendGet("http://172.16.101.82:8080/bk-cll-wap/scoreController/getScore?customerId=d5b55284ae4cf18244c6b54bc49188&applicationId=024c3910c619443bb4ca986d3fae08f1");
+		System.out.println("乡情贷评分:" + result);
+	}
 
 	@Test
 	public void repaymentPlanUpload() throws Exception {
@@ -47,7 +56,10 @@ public class BakeTest {
 
 	@Test
 	public void contractUpload() throws Exception {
-		List<Map<String, String>> maps = HttpClientUtil.getExcelData("getContract");
+		test = extent.startTest(this.getClass().getSimpleName() + "_"
+				+ "contractUpload");
+		List<Map<String, String>> maps = HttpClientUtil
+				.getExcelData("getContract");
 		File[] fileArray = { new File("C:\\Users\\admin\\Desktop\\test.png"),
 				new File("C:\\Users\\admin\\Desktop\\test.png") };
 		Map<String, String> params = new HashMap<String, String>();
@@ -81,7 +93,11 @@ public class BakeTest {
 			String result = HttpClientUtil.sendPost4FileArray(
 					DEV_contractUploadd, files, params);
 			System.out.println("合同上传:" + result);
+			test.log(LogStatus.PASS, "验证通过");
+			AssertUtil.verifyPass();
 		}
+		
+	
 		// params.put("invalidContractNo", "1116129680");
 		// params.put("contractNo", "1116129681");//合同编号
 		// params.put("dealerName", "车商2");//经销商名称

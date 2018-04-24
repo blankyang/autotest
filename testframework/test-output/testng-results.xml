@@ -2,62 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2209" started-at="2018-04-12T02:23:10Z" finished-at="2018-04-12T02:23:12Z">
+  <suite name="Default suite" duration-ms="1884" started-at="2018-04-23T10:22:55Z" finished-at="2018-04-23T10:22:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2209" started-at="2018-04-12T02:23:10Z" finished-at="2018-04-12T02:23:12Z">
-      <class name="cn.test.framework.tests.InterfaceTest">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:cn.test.framework.tests.InterfaceTest@77c2494c]" name="beforeSuite" is-config="true" duration-ms="78" started-at="2018-04-12T10:23:10Z" finished-at="2018-04-12T10:23:10Z">
+    <test name="Default test" duration-ms="1884" started-at="2018-04-23T10:22:55Z" finished-at="2018-04-23T10:22:56Z">
+      <class name="cn.test.framework.tests.BakeTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="beforeSuite" is-config="true" duration-ms="551" started-at="2018-04-23T18:22:54Z" finished-at="2018-04-23T18:22:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="test()[pri:0, instance:cn.test.framework.tests.InterfaceTest@77c2494c]" name="test" duration-ms="2194" started-at="2018-04-12T10:23:10Z" finished-at="2018-04-12T10:23:12Z">
+        <test-method status="PASS" signature="contractUpload()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="contractUpload" duration-ms="1606" started-at="2018-04-23T18:22:55Z" finished-at="2018-04-23T18:22:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:cn.test.framework.tests.InterfaceTest@77c2494c]" name="afterMethod" is-config="true" duration-ms="15" started-at="2018-04-12T10:23:12Z" finished-at="2018-04-12T10:23:12Z">
+        </test-method> <!-- contractUpload -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="afterMethod" is-config="true" duration-ms="266" started-at="2018-04-23T18:22:56Z" finished-at="2018-04-23T18:22:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=test status=SUCCESS method=InterfaceTest.test()[pri:0, instance:cn.test.framework.tests.InterfaceTest@77c2494c] output={null}]]]>
+                <![CDATA[[TestResult name=contractUpload status=SUCCESS method=BakeTest.contractUpload()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="FAIL" signature="afterSuite()[pri:0, instance:cn.test.framework.tests.InterfaceTest@77c2494c]" name="afterSuite" is-config="true" duration-ms="0" started-at="2018-04-12T10:23:12Z" finished-at="2018-04-12T10:23:12Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.relevantcodes.extentreports.Report.terminate(Report.java:412)
-	at com.relevantcodes.extentreports.ExtentReports.close(ExtentReports.java:708)
-	at com.test.framework.report.ExtentBase.afterSuite(ExtentBase.java:49)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:336)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="afterSuite" is-config="true" duration-ms="246" started-at="2018-04-23T18:22:56Z" finished-at="2018-04-23T18:22:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- cn.test.framework.tests.InterfaceTest -->
+      </class> <!-- cn.test.framework.tests.BakeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
