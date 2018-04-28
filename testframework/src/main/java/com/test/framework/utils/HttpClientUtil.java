@@ -13,6 +13,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
@@ -20,8 +21,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -63,9 +66,19 @@ public class HttpClientUtil {
 
 	}
 
-	public static String sendGet(String path) {
+	public static String sendGet(String path, Map<String, String> headers,
+			Map<String, String> cookies) {
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
-		CloseableHttpClient httpCilent2 = HttpClients.createDefault();
+		CookieStore cookieStore = new BasicCookieStore();
+		if (cookies != null && cookies.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(en.getKey(),
+						en.getValue());
+				cookieStore.addCookie(cookie);
+			}
+		}
+		CloseableHttpClient httpCilent2 = HttpClients.custom()
+				.setDefaultCookieStore(cookieStore).build();
 		RequestConfig requestConfig = RequestConfig.custom().setProxy(proxy)
 				.setConnectTimeout(5000) // 设置连接超时时间
 				.setConnectionRequestTimeout(5000) // 设置请求超时时间
@@ -73,13 +86,19 @@ public class HttpClientUtil {
 				.build();
 		HttpGet httpGet2 = new HttpGet(path);
 		httpGet2.setConfig(requestConfig);
+		if (headers != null && headers.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				httpGet2.setHeader(en.getKey(), en.getValue());
+			}
+		}
+
 		String srtResult = "";
 		try {
 			HttpResponse httpResponse = httpCilent2.execute(httpGet2);
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				srtResult = EntityUtils.toString(httpResponse.getEntity());// 获得返回的结果
 				return srtResult;
-			}else {
+			} else {
 				return "Error Response: "
 						+ httpResponse.getStatusLine().toString()
 						+ EntityUtils.toString(httpResponse.getEntity());
@@ -99,21 +118,37 @@ public class HttpClientUtil {
 		}
 	}
 
-	public static String sendPost4Map(String path, Map<String, String> paramsMap) {
+	public static String sendPost4Map(String url,
+			Map<String, String> paramsMap, Map<String, String> headers,
+			Map<String, String> cookies) {
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost(path);
+		CookieStore cookieStore = new BasicCookieStore();
+		if (cookies != null && cookies.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(en.getKey(),
+						en.getValue());
+				cookieStore.addCookie(cookie);
+			}
+		}
+		CloseableHttpClient httpClient = HttpClients.custom()
+				.setDefaultCookieStore(cookieStore).build();
+		HttpPost httpPost = new HttpPost(url);
 		RequestConfig requestConfig = RequestConfig.custom()
 				.setConnectTimeout(180 * 1000)
 				.setConnectionRequestTimeout(180 * 1000).setProxy(proxy)
 				.setSocketTimeout(180 * 1000).setRedirectsEnabled(true).build();
 		httpPost.setConfig(requestConfig);
-
+		if (headers != null && headers.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				httpPost.setHeader(en.getKey(), en.getValue());
+			}
+		}
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 		for (String key : paramsMap.keySet()) {
 			nvps.add(new BasicNameValuePair(key, String.valueOf(paramsMap
 					.get(key))));
 		}
+
 		try {
 			httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
 			HttpResponse response = httpClient.execute(httpPost);
@@ -139,16 +174,30 @@ public class HttpClientUtil {
 		}
 	}
 
-	public static String sendPost4Json(String path, String jsonParams) {
+	public static String sendPost4Json(String url, String jsonParams,
+			Map<String, String> headers, Map<String, String> cookies) {
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost(path);
+		CookieStore cookieStore = new BasicCookieStore();
+		if (cookies != null && cookies.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(en.getKey(),
+						en.getValue());
+				cookieStore.addCookie(cookie);
+			}
+		}
+		CloseableHttpClient httpClient = HttpClients.custom()
+				.setDefaultCookieStore(cookieStore).build();
+		HttpPost httpPost = new HttpPost(url);
 		RequestConfig requestConfig = RequestConfig.custom()
 				.setConnectTimeout(180 * 1000).setProxy(proxy)
 				.setConnectionRequestTimeout(180 * 1000)
 				.setSocketTimeout(180 * 1000).setRedirectsEnabled(true).build();
 		httpPost.setConfig(requestConfig);
-		httpPost.setHeader("Content-Type", "application/json");
+		if (headers != null && headers.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				httpPost.setHeader(en.getKey(), en.getValue());
+			}
+		}
 		try {
 			httpPost.setEntity(new StringEntity(jsonParams, ContentType.create(
 					"application/json", "utf-8")));
@@ -176,14 +225,30 @@ public class HttpClientUtil {
 	}
 
 	public static String sendPost4File(String serverUrl,
-			Map<String, File> files, Map<String, String> params) {
+			Map<String, File> files, Map<String, String> params,
+			Map<String, String> headers, Map<String, String> cookies) {
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+		CookieStore cookieStore = new BasicCookieStore();
+		if (cookies != null && cookies.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(en.getKey(),
+						en.getValue());
+				cookieStore.addCookie(cookie);
+			}
+		}
+		CloseableHttpClient httpClient = HttpClients.custom()
+				.setDefaultCookieStore(cookieStore).build();
 		HttpPost httpPost = new HttpPost(serverUrl);
 		RequestConfig requestConfig = RequestConfig.custom()
 				.setConnectTimeout(180 * 1000).setProxy(proxy)
 				.setConnectionRequestTimeout(180 * 1000)
 				.setSocketTimeout(180 * 1000).setRedirectsEnabled(true).build();
 		httpPost.setConfig(requestConfig);
+		if (headers != null && headers.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				httpPost.setHeader(en.getKey(), en.getValue());
+			}
+		}
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 		// 上传的文件
 		if (files != null && files.size() > 0) {
@@ -206,7 +271,6 @@ public class HttpClientUtil {
 					ContentType.TEXT_PLAIN.withCharset("UTF-8"));
 		}
 		HttpEntity httpEntity = builder.build();
-		CloseableHttpClient httpClient = HttpClients.createDefault();
 		try {
 
 			httpPost.setEntity(httpEntity);
@@ -232,15 +296,31 @@ public class HttpClientUtil {
 
 	}
 
-	public static String sendPost4FileArray(String serverUrl,
-			Map<String, File[]> files, Map<String, String> params) {
-		HttpPost httpPost = new HttpPost(serverUrl);
+	public static String sendPost4FileArray(String url,
+			Map<String, File[]> files, Map<String, String> params,
+			Map<String, String> headers, Map<String, String> cookies) {
+		HttpPost httpPost = new HttpPost(url);
 		HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+		CookieStore cookieStore = new BasicCookieStore();
+		if (cookies != null && cookies.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(en.getKey(),
+						en.getValue());
+				cookieStore.addCookie(cookie);
+			}
+		}
+		CloseableHttpClient httpClient = HttpClients.custom()
+				.setDefaultCookieStore(cookieStore).build();
 		RequestConfig requestConfig = RequestConfig.custom()
 				.setConnectTimeout(180 * 1000).setProxy(proxy)
 				.setConnectionRequestTimeout(180 * 1000)
 				.setSocketTimeout(180 * 1000).setRedirectsEnabled(true).build();
 		httpPost.setConfig(requestConfig);
+		if (headers != null && headers.size() > 0) {
+			for (Map.Entry<String, String> en : headers.entrySet()) {
+				httpPost.setHeader(en.getKey(), en.getValue());
+			}
+		}
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 		// 上传的文件
 		if (files != null && files.size() > 0) {
@@ -268,7 +348,6 @@ public class HttpClientUtil {
 					ContentType.TEXT_PLAIN.withCharset("UTF-8"));
 		}
 		HttpEntity httpEntity = builder.build();
-		CloseableHttpClient httpClient = HttpClients.createDefault();
 		try {
 
 			httpPost.setEntity(httpEntity);

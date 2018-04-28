@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="cn.test.framework.tests.BakeTest">
+      <class name="cn.test.framework.tests.WdTest">
         <methods>
-          <include name="contractUpload"/>
+          <include name="delRole"/>
         </methods>
-      </class> <!-- cn.test.framework.tests.BakeTest -->
+      </class> <!-- cn.test.framework.tests.WdTest -->
     </classes>
   </test> <!-- Default test -->
 </suite> <!-- Failed suite [Default suite] -->

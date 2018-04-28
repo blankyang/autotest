@@ -2,35 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1884" started-at="2018-04-23T10:22:55Z" finished-at="2018-04-23T10:22:56Z">
+  <suite name="Default suite" duration-ms="751" started-at="2018-04-28T01:48:51Z" finished-at="2018-04-28T01:48:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1884" started-at="2018-04-23T10:22:55Z" finished-at="2018-04-23T10:22:56Z">
-      <class name="cn.test.framework.tests.BakeTest">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="beforeSuite" is-config="true" duration-ms="551" started-at="2018-04-23T18:22:54Z" finished-at="2018-04-23T18:22:55Z">
+    <test name="Default test" duration-ms="751" started-at="2018-04-28T01:48:51Z" finished-at="2018-04-28T01:48:52Z">
+      <class name="cn.test.framework.tests.WdTest">
+        <test-method status="PASS" signature="delRole()[pri:0, instance:cn.test.framework.tests.WdTest@3cd3e762]" name="delRole" duration-ms="732" started-at="2018-04-28T09:48:51Z" finished-at="2018-04-28T09:48:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="contractUpload()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="contractUpload" duration-ms="1606" started-at="2018-04-23T18:22:55Z" finished-at="2018-04-23T18:22:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- contractUpload -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="afterMethod" is-config="true" duration-ms="266" started-at="2018-04-23T18:22:56Z" finished-at="2018-04-23T18:22:56Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=contractUpload status=SUCCESS method=BakeTest.contractUpload()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:cn.test.framework.tests.BakeTest@402f32ff]" name="afterSuite" is-config="true" duration-ms="246" started-at="2018-04-23T18:22:56Z" finished-at="2018-04-23T18:22:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterSuite -->
-      </class> <!-- cn.test.framework.tests.BakeTest -->
+        </test-method> <!-- delRole -->
+      </class> <!-- cn.test.framework.tests.WdTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

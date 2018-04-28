@@ -14,12 +14,10 @@ import com.test.framework.dataprovider.ExcelDataProvider;
 import com.test.framework.report.ExtentBase;
 import com.test.framework.utils.AssertUtil;
 import com.test.framework.utils.HttpUtil;
-import com.test.framework.utils.Log;
 
 @Listeners({ com.test.framework.utils.AssertListener.class })
 public class InterfaceTest extends ExtentBase {
-
-	Log log = new Log(InterfaceTest.class);
+	
 	private JSONObject object;
 	private static String ip;
 	private static String port;
@@ -40,7 +38,6 @@ public class InterfaceTest extends ExtentBase {
 
 	@Test(dataProvider = "testImageRec", dataProviderClass = ExcelDataProvider.class, enabled = false)
 	public void test_image_rec(Map<String, String> param) throws Exception {
-		log.info("--------图片" + param.get("image_name") + "开始测试--------");
 		test = extent.startTest((this.getClass().getSimpleName() + "_"
 				+ "test_image_rec" + "_" + param.get("image_name")));
 		logKey = param.get("image_name");

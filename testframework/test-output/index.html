@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse-151543854\testng-customsuite.xml</span>
+                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse-1750018090\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.test.framework.tests.BakeTest" hash-for-method="contractUpload">contractUpload</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.test.framework.tests.WdTest" hash-for-method="delRole">delRole</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,14 +120,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">cn.test.framework.tests.BakeTest</span>
+              <span class="class-name">cn.test.framework.tests.WdTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="contractUpload">
-                  </a> <!-- contractUpload -->
-                  <span class="method-name">contractUpload</span>
+                  <a name="delRole">
+                  </a> <!-- delRole -->
+                  <span class="method-name">delRole</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +135,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse-151543854\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse-1750018090\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,11 +144,11 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;cn.test.framework.tests.BakeTest&quot;&gt;
+      &lt;class name=&quot;cn.test.framework.tests.WdTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;contractUpload&quot;/&gt;
+          &lt;include name=&quot;delRole&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- cn.test.framework.tests.BakeTest --&gt;
+      &lt;/class&gt; &lt;!-- cn.test.framework.tests.WdTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -190,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'contractUpload')
-data.setCell(0, 2, 'cn.test.framework.tests.BakeTest')
-data.setCell(0, 3, 1606);
+data.setCell(0, 1, 'delRole')
+data.setCell(0, 2, 'cn.test.framework.tests.WdTest')
+data.setCell(0, 3, 732);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 732 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -212,95 +212,75 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">42 ignored methods</span>
+            <span class="header-content">32 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">cn.test.framework.tests.BakeTest</span>
+              <span class="ignored-class-name">cn.test.framework.tests.WdTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">getCustomer</span>
+                <span class="ignored-method-name">findAppMenu</span>
                 <br/>
-                <span class="ignored-method-name">getPersonBaseInfo</span>
+                <span class="ignored-method-name">assignRole</span>
                 <br/>
-                <span class="ignored-method-name">personAssetList</span>
+                <span class="ignored-method-name">findRoleMenu</span>
                 <br/>
-                <span class="ignored-method-name">updateCustomerInfo</span>
+                <span class="ignored-method-name">findUserByOfficeId</span>
                 <br/>
-                <span class="ignored-method-name">deleteCustomerRelationInfo</span>
+                <span class="ignored-method-name">saveUser</span>
                 <br/>
-                <span class="ignored-method-name">saveStrategy</span>
+                <span class="ignored-method-name">editOffice</span>
                 <br/>
-                <span class="ignored-method-name">nearbyCustomer</span>
+                <span class="ignored-method-name">updateMenu</span>
                 <br/>
-                <span class="ignored-method-name">traceList</span>
+                <span class="ignored-method-name">addOffice</span>
                 <br/>
-                <span class="ignored-method-name">checkLoan</span>
+                <span class="ignored-method-name">findAllMenu</span>
                 <br/>
-                <span class="ignored-method-name">getLoanDetail</span>
+                <span class="ignored-method-name">editUserOffice</span>
                 <br/>
-                <span class="ignored-method-name">getDualNoteList</span>
+                <span class="ignored-method-name">getMenu</span>
                 <br/>
-                <span class="ignored-method-name">favoriteCutomer</span>
+                <span class="ignored-method-name">findAllRole</span>
                 <br/>
-                <span class="ignored-method-name">building_mortgage_list</span>
+                <span class="ignored-method-name">saveMenu</span>
                 <br/>
-                <span class="ignored-method-name">customerRelationList</span>
+                <span class="ignored-method-name">saveLowerMenu</span>
                 <br/>
-                <span class="ignored-method-name">updateCustomerType</span>
+                <span class="ignored-method-name">findOfficeUser</span>
                 <br/>
-                <span class="ignored-method-name">saveRecognizor</span>
+                <span class="ignored-method-name">getFindAllRole</span>
                 <br/>
-                <span class="ignored-method-name">addPersonAssetCar</span>
+                <span class="ignored-method-name">updateRole</span>
                 <br/>
-                <span class="ignored-method-name">customerAllList</span>
+                <span class="ignored-method-name">saveGlobalSetting</span>
                 <br/>
-                <span class="ignored-method-name">getApplyInfo</span>
+                <span class="ignored-method-name">getUserInfo</span>
                 <br/>
-                <span class="ignored-method-name">addPersonAssetBuilding</span>
+                <span class="ignored-method-name">checkOfficeIsExistUser</span>
                 <br/>
-                <span class="ignored-method-name">loanList</span>
+                <span class="ignored-method-name">findRoleUser</span>
                 <br/>
-                <span class="ignored-method-name">getSimpleMoudle</span>
+                <span class="ignored-method-name">findOffice</span>
                 <br/>
-                <span class="ignored-method-name">recognizorList</span>
+                <span class="ignored-method-name">delOffice</span>
                 <br/>
-                <span class="ignored-method-name">getSimpleConfig</span>
+                <span class="ignored-method-name">getFindOffice</span>
                 <br/>
-                <span class="ignored-method-name">addLoan</span>
+                <span class="ignored-method-name">delRoleUser</span>
                 <br/>
-                <span class="ignored-method-name">saveCustomerRelationInfo</span>
+                <span class="ignored-method-name">delMenu</span>
                 <br/>
-                <span class="ignored-method-name">login</span>
+                <span class="ignored-method-name">checkIsEndOffice</span>
                 <br/>
-                <span class="ignored-method-name">surveyPhotoList</span>
+                <span class="ignored-method-name">findAssignRole</span>
                 <br/>
-                <span class="ignored-method-name">customerRelationDetails</span>
+                <span class="ignored-method-name">getGlobalSetting</span>
                 <br/>
-                <span class="ignored-method-name">getSore</span>
+                <span class="ignored-method-name">saveSelectGroup</span>
                 <br/>
-                <span class="ignored-method-name">addCreditAuth</span>
+                <span class="ignored-method-name">getOfficeInfo</span>
                 <br/>
-                <span class="ignored-method-name">getLoanList</span>
-                <br/>
-                <span class="ignored-method-name">deletePersonAssetBuilding</span>
-                <br/>
-                <span class="ignored-method-name">addTrace</span>
-                <br/>
-                <span class="ignored-method-name">deleteRecognizor</span>
-                <br/>
-                <span class="ignored-method-name">saveDualNote</span>
-                <br/>
-                <span class="ignored-method-name">deletePersonAssetCar</span>
-                <br/>
-                <span class="ignored-method-name">saveBuildingMortgage</span>
-                <br/>
-                <span class="ignored-method-name">saveSurveyPhotos</span>
-                <br/>
-                <span class="ignored-method-name">repaymentPlanUpload</span>
-                <br/>
-                <span class="ignored-method-name">addCustomer</span>
-                <br/>
-                <span class="ignored-method-name">all_building_list_application</span>
+                <span class="ignored-method-name">saveRole</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -312,23 +292,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">cn.test.framework.tests.BakeTest</div> <!-- chronological-class-name -->
-              <div class="configuration-suite before">
-                <span class="method-name">beforeSuite</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-suite before -->
+              <div class="chronological-class-name">cn.test.framework.tests.WdTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">contractUpload</span>
-                <span class="method-start">560 ms</span>
+                <span class="method-name">delRole</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=contractUpload status=SUCCESS method=BakeTest.contractUpload()[pri:0, instance:cn.t...)</span>
-                <span class="method-start">2168 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-suite after">
-                <span class="method-name">afterSuite</span>
-                <span class="method-start">2456 ms</span>
-              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
